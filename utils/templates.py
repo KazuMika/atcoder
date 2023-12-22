@@ -169,6 +169,35 @@ class UnionFind(object):
             self.pare[x] = self.find(self.pare[x])
             return self.pare[x]
 
+    def union(self, x, y):
+        x, y = self.find(x), self.find(y)
+        if x == y:
+            return False
+        if x > y:
+            x, y = y, x
+
+        self.pare[x] += self.pare[y]
+        self.pare[y] = x
+        return True
+
+    def same(self, x, y):
+        return self.find(x) == self.find(y)
+
+    def roots(self):
+        return [i for i in range(self.n) if self.pare[i] < 0]
+
+    def members(self, x):
+        root = self.find(x)
+        return [i for i in range(self.n) if self.find(i) == root or i == root]
+
+    def groups(self):
+        dic = defaultdict(list)
+        rs = self.root()
+        for r in rs:
+            dic[r] = self.members(r)
+
+        return dic
+
 
 class Trainer(object):
     def __init__(self, args):
