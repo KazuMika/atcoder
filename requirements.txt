@@ -1,0 +1,13 @@
+atcoder-tools==2.13.0
+beautifulsoup4==4.12.2
+certifi==2023.11.17
+charset-normalizer==3.3.2
+colorama==0.4.6
+idna==3.6
+Jinja2==2.11.3
+MarkupSafe==2.0.1
+numpy==1.26.2
+requests==2.31.0
+soupsieve==2.5
+toml==0.10.2
+urllib3==2.1.0

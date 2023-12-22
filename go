@@ -9,7 +9,13 @@ fi
 
 which=${1:-run}
 THIS_START=$(date +%Y.%m.%d_%H.%M.%S)
-echo "[START: $which] [$THIS_START] ######################################################################"
+echo "[START: $which] [$THIS_START] ###############################"
+
+contest="abc100"
+rank="A"
+dir="${HERE}/problems/${contest}/${rank}"
+exe="${HERE}/problems/${contest}/${rank}/main.py"
+
 
 if [ $# -gt 1 ]; then
     script=$0
@@ -17,6 +23,19 @@ if [ $# -gt 1 ]; then
         "${script} ${which}"
     done
     exit
+fi
+
+
+
+if [ "${which}" == "test" ]; then
+    atcoder-tools "test"  --dir "${dir}"
+
+    
+fi
+
+if [ "${which}" == "submit" ]; then
+    atcoder-tools submit --exec "python ${exe}"
+    
 fi
 
 if [ "${which}" == get_files ]; then
@@ -46,4 +65,4 @@ fi
 
 
 THIS_END=$(date +%Y.%m.%d_%H.%M.%S)
-echo "[END  : $which] [$THIS_END] ######################################################################"
+echo "[END  : $which] [$THIS_END] ##############################"

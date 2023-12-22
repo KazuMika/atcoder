@@ -1,21 +1,26 @@
-# -*- coding: utf-8 -*-
-
-import numpy as np
-from heapq import heappop, heappush
-from itertools import permutations, combinations, combinations_with_replacement, product
-from collections import defaultdict, Counter
-import fractions
-import bisect
 import sys
-sys.setrecursionlimit(10000)
+import bisect
+import fractions
+from collections import defaultdict, Counter
+from itertools import permutations, combinations, combinations_with_replacement, product
+from heapq import heappop, heappush
+import numpy as np
+
+# sys.setrecursionlimit(10000)
 
 
 def slover():
-    n = get_n()
-    print(n)
+    a, b = get_arr()
+    print('test')
+    maxv = max(a, b)
+    if maxv <= 8:
+        print("Yay!")
+    else:
+        print(":(")
 
 
 # XXX
+
 
 def get_n():
     return int(input())
