@@ -3,6 +3,7 @@
 from pathlib import Path
 import shutil
 import argparse
+import importlib
 
 names = ['a.py', 'b.py', 'c.py', 'd.py', 'e.py']
 
@@ -39,6 +40,15 @@ def make_data(src):
                 print(content, file=fo)
 
 
+def test(src):
+    src = Path(src)
+    print(src)
+    inputs = sorted(list(src.glob('in_*')))
+    for inp in inputs:
+        inp = str(inp)
+        out = inp.replace('in', 'out')
+
+
 def change_name(src):
     root = Path(src)
     problems_path = root / 'problems'
@@ -59,6 +69,8 @@ def main():
         make_data(args.src)
     elif args.which == 'change_name':
         change_name(args.src)
+    elif args.which == 'test':
+        test(args.src)
 
 
 if __name__ == '__main__':

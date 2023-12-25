@@ -14,7 +14,6 @@ echo "[START: $which] [$THIS_START] ###############################"
 contest="abc100"
 rank="A"
 dir="${HERE}/problems/${contest}/${rank}"
-exe="${HERE}/problems/${contest}/${rank}/main.py"
 
 
 if [ $# -gt 1 ]; then
@@ -34,20 +33,33 @@ if [ "${which}" == "test" ]; then
 fi
 
 if [ "${which}" == "submit" ]; then
-    atcoder-tools submit --exec "python ${exe}"
+    atcoder-tools submit --dir "${dir}"
     
 fi
 
 if [ "${which}" == get_files ]; then
-    START=297
+    START=100
     END=333
     for ((i=START;i<=END;i++)); do
         pb="abc${i}"
         atcoder-tools gen ${pb}
     done
-    
 fi
 
+if [ "${which}" == make_pyfiles ]; then
+    START=100
+    END=333
+    ranks=('A' "B" "C" "D" "E" "F" 'G')
+    for ((i=START;i<=END;i++)); do
+        for rank in "${ranks[@]}"; do
+            pb="abc${i}"
+            src="${HERE}/utils/template.py"
+            dst="${HERE}/problems/${pb}/${rank}/main.py"
+            cp  "${src}" "${dst}"
+            chmod +x "${dir}"
+        done
+    done
+fi
 
 if [ "${which}" == change_name ]; then
     src="${HERE}"
