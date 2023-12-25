@@ -12,11 +12,10 @@ sys.setrecursionlimit(10000)
 
 
 def slover():
-    n = get_n()
-    print(n)
+    D, N = get_arr()
+    ans = (100 ** D) * N
+    print(ans)
 
-
-# XXX
 
 def get_n():
     return int(input())

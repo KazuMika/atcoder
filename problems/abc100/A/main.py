@@ -12,8 +12,12 @@ sys.setrecursionlimit(10000)
 
 
 def slover():
-    n = get_n()
-    print(n)
+    a, b = get_arr()
+    maxv = max(a, b)
+    if maxv > 8:
+        print(':(')
+    else:
+        print('Yay!')
 
 
 # XXX

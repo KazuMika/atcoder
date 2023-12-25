@@ -12,7 +12,7 @@ THIS_START=$(date +%Y.%m.%d_%H.%M.%S)
 echo "[START: $which] [$THIS_START] ###############################"
 
 contest="abc100"
-rank="A"
+rank="C"
 dir="${HERE}/problems/${contest}/${rank}"
 
 
@@ -33,7 +33,7 @@ if [ "${which}" == "test" ]; then
 fi
 
 if [ "${which}" == "submit" ]; then
-    atcoder-tools submit --dir "${dir}"
+    atcoder-tools submit -u --dir "${dir}"
     
 fi
 
@@ -55,8 +55,9 @@ if [ "${which}" == make_pyfiles ]; then
             pb="abc${i}"
             src="${HERE}/utils/template.py"
             dst="${HERE}/problems/${pb}/${rank}/main.py"
-            cp  "${src}" "${dst}"
-            chmod +x "${dir}"
+            # echo ${dst}
+            # cp  "${src}" "${dst}"
+            chmod 777 "${dst}"
         done
     done
 fi
