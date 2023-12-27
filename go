@@ -11,35 +11,30 @@ which=${1:-run}
 THIS_START=$(date +%Y.%m.%d_%H.%M.%S)
 echo "[START: $which] [$THIS_START] ###############################"
 
-contest="abc100"
-rank="C"
-dir="${HERE}/problems/${contest}/${rank}"
 
-
-if [ $# -gt 1 ]; then
-    script=$0
-    for which in "$@"; do
-        "${script} ${which}"
-    done
-    exit
-fi
-
+echo $which
 
 
 if [ "${which}" == "test" ]; then
+    contest="abc$2"
+    rank=$3
+    dir="${HERE}/problems/${contest}/${rank}"
     atcoder-tools "test"  --dir "${dir}"
 
     
 fi
 
 if [ "${which}" == "submit" ]; then
+    contest="abc$2"
+    rank=$3
+    dir="${HERE}/problems/${contest}/${rank}"
     atcoder-tools submit -u --dir "${dir}"
     
 fi
 
 if [ "${which}" == get_files ]; then
-    START=100
-    END=333
+    START=
+    END=334
     for ((i=START;i<=END;i++)); do
         pb="abc${i}"
         atcoder-tools gen ${pb}
@@ -47,16 +42,14 @@ if [ "${which}" == get_files ]; then
 fi
 
 if [ "${which}" == make_pyfiles ]; then
-    START=100
-    END=333
+    START=334
+    END=334
     ranks=('A' "B" "C" "D" "E" "F" 'G')
     for ((i=START;i<=END;i++)); do
         for rank in "${ranks[@]}"; do
             pb="abc${i}"
             src="${HERE}/utils/template.py"
             dst="${HERE}/problems/${pb}/${rank}/main.py"
-            # echo ${dst}
-            # cp  "${src}" "${dst}"
             chmod 777 "${dst}"
         done
     done

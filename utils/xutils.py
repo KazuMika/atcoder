@@ -59,8 +59,10 @@ def change_name(src):
         new_name = con_num + rank.name.lower() + '.py'
         new_name = 'main.py'
         path.rename(path.parent / new_name)
-        new_name = rank.name.upper()
+        print(path.parent / new_name)
+        new_name = rank.name.lower()
         rank.rename(rank.parent / new_name)
+        print(new_name)
 
 
 def main():
