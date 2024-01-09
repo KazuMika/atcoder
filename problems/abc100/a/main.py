@@ -1,29 +1,23 @@
 #!/home/k.mikami/.pyenv/versions/atcoder/bin/python3.10
-# -*- coding: utf-8 -*-
 
-import numpy as np
-from heapq import heappop, heappush
+# -*- coding: utf-8 -*-
 from itertools import permutations, combinations, combinations_with_replacement, product
-from collections import defaultdict, Counter
 import fractions
 import bisect
 import sys
-
 sys.setrecursionlimit(10000)
 
 
 def slover():
-    N, Q = get_arr()
-    A = get_arr()
-    A = [0] + A
-    for i in range(1, len(A)):
-        A[i] += A[i-1]
+    a, b = get_arr()
+    maxv = max(a, b)
+    if maxv > 8:
+        print(':(')
+    else:
+        print('Yay!')
 
-    for i in range(Q):
-        l, r = get_arr()
-        ans = A[r] - A[l-1]
-        print(ans)
 
+# XXX
 
 def get_n():
     return int(input())

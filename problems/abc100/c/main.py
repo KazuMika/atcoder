@@ -8,22 +8,15 @@ from collections import defaultdict, Counter
 import fractions
 import bisect
 import sys
-
 sys.setrecursionlimit(10000)
 
 
 def slover():
-    N, Q = get_arr()
-    A = get_arr()
-    A = [0] + A
-    for i in range(1, len(A)):
-        A[i] += A[i-1]
+    n = get_n()
+    print(n)
 
-    for i in range(Q):
-        l, r = get_arr()
-        ans = A[r] - A[l-1]
-        print(ans)
 
+# XXX
 
 def get_n():
     return int(input())

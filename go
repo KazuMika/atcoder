@@ -16,12 +16,12 @@ echo $which
 
 
 if [ "${which}" == "test" ]; then
+    contest="tessoku-book"
     contest="abc$2"
     rank=$3
+
     dir="${HERE}/problems/${contest}/${rank}"
     atcoder-tools "test"  --dir "${dir}"
-
-    
 fi
 
 if [ "${which}" == "submit" ]; then
