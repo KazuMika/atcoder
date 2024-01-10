@@ -20,8 +20,6 @@ def slover():
         print('Yay!')
 
 
-# XXX
-
 def get_n():
     return int(input())
 
