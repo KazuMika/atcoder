@@ -1,4 +1,4 @@
-#!/home/k.mikami/.pyenv/versions/atcoder/bin/python3.10
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
 import numpy as np

@@ -53,16 +53,16 @@ def change_name(src):
     root = Path(src)
     problems_path = root / 'problems'
     main_files = sorted(list(problems_path.rglob('*.py')))
-    for path in main_files:
-        rank = path.parent
-        con_num = str(path.parent.parent.stem)[3:]
-        new_name = con_num + rank.name.lower() + '.py'
-        new_name = 'main.py'
-        path.rename(path.parent / new_name)
-        print(path.parent / new_name)
-        new_name = rank.name.lower()
-        rank.rename(rank.parent / new_name)
-        print(new_name)
+    # for path in main_files:
+    #     rank = path.parent
+    #     con_num = str(path.parent.parent.stem)[3:]
+    #     new_name = con_num + rank.name.lower() + '.py'
+    #     new_name = 'main.py'
+    #     path.rename(path.parent / new_name)
+    #     print(path.parent / new_name)
+    #     new_name = rank.name.lower()
+    #     rank.rename(rank.parent / new_name)
+    #     print(new_name)
 
 
 def main():

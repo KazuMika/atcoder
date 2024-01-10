@@ -15,9 +15,10 @@ echo "[START: $which] [$THIS_START] ###############################"
 echo $which
 
 
+
 if [ "${which}" == "test" ]; then
     contest="tessoku-book"
-    contest="abc$2"
+    contest="abc/abc$2"
     rank=$3
 
     dir="${HERE}/problems/${contest}/${rank}"
@@ -26,11 +27,18 @@ fi
 
 if [ "${which}" == "submit" ]; then
     contest="abc$2"
-    rank=$3
+
     dir="${HERE}/problems/${contest}/${rank}"
     atcoder-tools submit -u --dir "${dir}"
     
 fi
+
+if [ "${which}" == sed ]; then
+    # find main.py | xargs sed -i "s/\#\!\/home\/k.mikami\/.pyenv\/versions\/atcoder\/bin\/python3.10/\#\!\/usr\/bin\/env python/g"
+    # find main.py | xargs sed -i "s/\#\!\/usr\/bin\/env python@/\#\!\/usr\/bin\/env python/g"
+    exit
+fi
+
 
 if [ "${which}" == get_files ]; then
     START=
